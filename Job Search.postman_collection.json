@@ -1,0 +1,914 @@
+{
+	"info": {
+		"_postman_id": "644d1974-7b3f-4c8c-a794-9d791b42b64c",
+		"name": "Job Search",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26926145",
+		"_collection_link": "https://orange-eclipse-90833.postman.co/workspace/project~de7d9a41-23ac-4371-90fc-017614de7e52/collection/26926145-644d1974-7b3f-4c8c-a794-9d791b42b64c?action=share&source=collection_link&creator=26926145"
+	},
+	"item": [
+		{
+			"name": "User APIS",
+			"item": [
+				{
+					"name": "Forget Password",
+					"item": [
+						{
+							"name": "Send Otp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"faroukkhaled@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/sendOtp",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"sendOtp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forget Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"faroukkhaled@gmail.com\",\r\n    \"otp\":888069,\r\n    \"newPassword\":\"Lacasadepape1001\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/forgetPassword",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"forgetPassword"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/getProfile/65c5c0897ca1b106adf1ca12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getProfile",
+								"65c5c0897ca1b106adf1ca12"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3NWI5ZmViMGU1M2U1ZWEyMDUyNWEiLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU2NDAwNH0.Ls21Mby1Ot3SLO8N1B2s4ollpiyuJXHf-tojd5WlFBE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/getUserData/65c75b9feb0e53e5ea20525a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getUserData",
+								"65c75b9feb0e53e5ea20525a"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Accounts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recoveryEmail\":\"faroukkhaleddoksh@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/getAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getAccount"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "SignUp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"farouk\",\n    \"lastName\":\"Khlaid\",\n    \"username\":\"faroukkhaled437\",\n    \"password\":\"Dragon100\",\n    \"email\":\"faroukKhalid@gmail.com\",\n    \"recoveryEmail\":\"faroukzzzz@gmail.com\",\n    \"mobileNumber\":\"0103246674464\",\n    \"DOB\":21,\n    \"role\":\"Company_HR\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"signup"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Signin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobileNumber\":\"0103246674464\",\n    \"password\":\"Dragon100\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"signin"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3MmQyZTdiZmM0NjRkZDY4NmJmZDkiLCJyb2xlIjoidXNlciIsImlhdCI6MTcwNzU1MzA2OH0.XscU3rDzr8Ha9p0wMJL3snOGMFqOHTVX-_jWEb0ye4s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\":\"Dragon100\",\n    \"newPassword\":\"Dragon10040\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/changePassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"changePassword"
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3MmMzMjdiZmM0NjRkZDY4NmJmYjAiLCJyb2xlIjoidXNlciIsImlhdCI6MTcwNzU1MTk0Nn0.4iJz73JqFG0bVI6FwIMWlXHQqUWZ-TXrGjKmKqAVf6A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/deleteAccount/65c72c327bfc464dd686bfb0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"deleteAccount",
+								"65c72c327bfc464dd686bfb0"
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3ZTg1YWEzN2Y1NTc5ZjYxZDk4NTUiLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU5OTk3M30.G19rDrkf7eO-zYG-Gc7TfdUjStgePOaFSZScdz-cpz0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"farouksss\",\r\n    \"lastName\":\"Khlaid\",\r\n    \"email\":\"faroukKhalidzsd@gmail.com\",\r\n    \"recoveryEmail\":\"faroukzzzz@gmail.com\",\r\n    \"mobileNumber\":\"0103246674464\",\r\n    \"DOB\":21\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/updateAccount/65c7e85aa37f5579f61d9855",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"updateAccount",
+								"65c7e85aa37f5579f61d9855"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company APIS",
+			"item": [
+				{
+					"name": "Add Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3ZDEyZjczOTNjNzM5NDY5YmMxMjIiLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU5NDA0MH0.A8gE-ZnqK7bk0AII0QlyOnLKH9jpPJh9Xcyks97sYt4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\": \"samsung\",\r\n    \"description\": \"great company\",\r\n    \"industry\": \"Technology\",\r\n    \"address\": \"helwan\",\r\n    \"numberOfEmployees\": 30,\r\n    \"companyEmail\": \"samsung@gmail.com\",\r\n    \"companyHR\": \"65c7d12f7393c739469bc122\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/addCompany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"addCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3NzZmMmU5ZmU4ZTI5OWU2ZDAxN2MiLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU3Nzc2OH0.Veu-VJsWWtPqBpRX0zOQ3unzEtLi8gy_V-Oo61lW96Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\": \"holmes\",\r\n    \"description\": \"great company\",\r\n    \"industry\": \"Technology\",\r\n    \"address\": \"helwan\",\r\n    \"numberOfEmployees\": 30,\r\n    \"companyEmail\": \"nidfgdf@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/updateCompany/65c7a1e8ee7d4b4770e218a3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"updateCompany",
+								"65c7a1e8ee7d4b4770e218a3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3NzZmMmU5ZmU4ZTI5OWU2ZDAxN2MiLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU3Nzc2OH0.Veu-VJsWWtPqBpRX0zOQ3unzEtLi8gy_V-Oo61lW96Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\": \"ABCDEF Corporation\",\r\n    \"description\":\"a great company.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/deleteCompany/65c7a1c7ee7d4b4770e21891",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"deleteCompany",
+								"65c7a1c7ee7d4b4770e21891"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3ZDEyZjczOTNjNzM5NDY5YmMxMjIiLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU5NDA0MH0.A8gE-ZnqK7bk0AII0QlyOnLKH9jpPJh9Xcyks97sYt4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/getCompany/65c7d1c47393c739469bc12a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getCompany",
+								"65c7d1c47393c739469bc12a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search For Company",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3ODNlMWZiNmUxYzEyYzVkYThkZjciLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU3NDI1Nn0.glJqj9FNlAGQhzyq7-5SHK7RFocPKrryRPkON57H5yM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\":\"samsung\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/searchForCompany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"searchForCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all applications for specific Jobs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3ODNlMWZiNmUxYzEyYzVkYThkZjciLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU3NDI1Nn0.glJqj9FNlAGQhzyq7-5SHK7RFocPKrryRPkON57H5yM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/getApplication/65c7badbca7a82643ae9eb3b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getApplication",
+								"65c7badbca7a82643ae9eb3b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job Apis",
+			"item": [
+				{
+					"name": "Add Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3ZDEyZjczOTNjNzM5NDY5YmMxMjIiLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU5NDA0MH0.A8gE-ZnqK7bk0AII0QlyOnLKH9jpPJh9Xcyks97sYt4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobTitle\": \"cpp Developer\",\r\n    \"jobLocation\": \"remotely\",\r\n    \"workingTime\": \"Part-time\",\r\n    \"seniorityLevel\": \"Senior\",\r\n    \"jobDescription\": \"We are looking for an experienced .net back-end developer to join our dynamic team...\",\r\n    \"technicalSkills\": [\"c++\"],\r\n    \"softSkills\": [\"brainstoriming\"],\r\n    \"addedBy\": \"65c7d1c47393c739469bc12a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/addJob",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"addJob"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apply For Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3Y2UyOWMyODQ3NGNhMGQ5Y2VjN2MiLCJyb2xlIjoidXNlciIsImlhdCI6MTcwNzU5MzI3MH0.yE1dteiPpeLkIw21wDaZr1cdbF0zmnbJf0c8PMziPH0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"jobId\": \"65c7badbca7a82643ae9eb3b\",  // Replace with the actual job ID\r\n    \"userTechSkills\": [\"JavaScript\", \"React\"],\r\n    \"userSoftSkills\": [\"Communication\", \"Teamwork\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/applyForJob",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applyForJob"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3OTliMDgzMWU4ZGJmYjEzNjllNjgiLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU3OTgzNn0.KTLMfzLdFUfuQBdZN6ETCz-Wn4sVanlYw6IZcqbMsqg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobTitle\": \"Node\",\r\n    \"jobLocation\": \"remotely\",\r\n    \"workingTime\": \"Full-time\",\r\n    \"seniorityLevel\": \"Senior\",\r\n    \"jobDescription\": \"We are looking for an experienced Node.js back-end developer to join our dynamic team...\",\r\n    \"technicalSkills\": [\"Node.js\", \"Express.js\", \"MongoDB\"],\r\n    \"softSkills\": [\"java\"]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/updateJob/65c7a7e6cc11211041a977fb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"updateJob",
+								"65c7a7e6cc11211041a977fb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3OTliMDgzMWU4ZGJmYjEzNjllNjgiLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU3OTgzNn0.KTLMfzLdFUfuQBdZN6ETCz-Wn4sVanlYw6IZcqbMsqg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\": \"ABCDEF Corporation\",\r\n    \"description\":\"a great company.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/deleteJob/65c7a7e6cc11211041a977fb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"deleteJob",
+								"65c7a7e6cc11211041a977fb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Jobs With Comany Info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3ODNlMWZiNmUxYzEyYzVkYThkZjciLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU3NDI1Nn0.glJqj9FNlAGQhzyq7-5SHK7RFocPKrryRPkON57H5yM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/getJobs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getJobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getJobsForCompany",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3ZDEyZjczOTNjNzM5NDY5YmMxMjIiLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU5NDA0MH0.A8gE-ZnqK7bk0AII0QlyOnLKH9jpPJh9Xcyks97sYt4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\":\"65c7d1c47393c739469bc12a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/getJobsForCompany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getJobsForCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWM3ODNlMWZiNmUxYzEyYzVkYThkZjciLCJyb2xlIjoiQ29tcGFueV9IUiIsImlhdCI6MTcwNzU3NDI1Nn0.glJqj9FNlAGQhzyq7-5SHK7RFocPKrryRPkON57H5yM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\":\"ni\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/getfilteredJobs?workingTime=Part-time",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getfilteredJobs"
+							],
+							"query": [
+								{
+									"key": "workingTime",
+									"value": "Part-time"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
